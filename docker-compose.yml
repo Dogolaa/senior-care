@@ -1,10 +1,10 @@
 services:
   db:
     image: postgres:15
-    container_name: auth_server_db
+    container_name: seniorCare_db
     restart: always
     ports:
-      - '15432:5432'
+      - '5434:5432'
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: postgres
@@ -15,19 +15,19 @@ services:
   app:
     build:
       context: .
-    container_name: auth_server
+    container_name: seniorCare
     restart: unless-stopped
     depends_on:
       - db
     ports:
-      - '5000:3000'
+      - '6000:3000'
     environment:
       JWT_SECRET: ${JWT_SECRET}
       DB_HOST: db
       DB_PORT: 5432
       DB_USERNAME: postgres
       DB_PASSWORD: postgres
-      DB_DATABASE: nestapp
+      DB_DATABASE: SeniorCare
 
 volumes:
   pgdata:

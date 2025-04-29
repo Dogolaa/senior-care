@@ -174,6 +174,76 @@ export class CreatingInitialTables1745630257039 implements MigrationInterface {
       }),
     );
 
+    await queryRunner.createTable(
+      new Table({
+        name: 'resident',
+        columns: [
+          {
+            name: 'id',
+            type: 'uuid',
+            isPrimary: true,
+            isGenerated: true,
+            generationStrategy: 'uuid',
+          },
+          {
+            name: 'name',
+            type: 'varchar',
+            isNullable: false,
+          },
+          {
+            name: 'dateOfBirth',
+            type: 'date',
+            isNullable: false,
+          },
+          {
+            name: 'gender',
+            type: 'varchar',
+            isNullable: false,
+          },
+          {
+            name: 'admissionDate',
+            type: 'date',
+            isNullable: false,
+          },
+        ],
+      }),
+    );
+
+        await queryRunner.createTable(
+      new Table({
+        name: 'resident',
+        columns: [
+          {
+            name: 'id',
+            type: 'uuid',
+            isPrimary: true,
+            isGenerated: true,
+            generationStrategy: 'uuid',
+          },
+          {
+            name: 'name',
+            type: 'varchar',
+            isNullable: false,
+          },
+          {
+            name: 'dateOfBirth',
+            type: 'date',
+            isNullable: false,
+          },
+          {
+            name: 'gender',
+            type: 'varchar',
+            isNullable: false,
+          },
+          {
+            name: 'admissionDate',
+            type: 'date',
+            isNullable: false,
+          },
+        ],
+      }),
+    );
+
     await queryRunner.createForeignKey(
       'users',
       new TableForeignKey({

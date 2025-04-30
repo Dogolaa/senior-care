@@ -209,9 +209,9 @@ export class CreatingInitialTables1745630257039 implements MigrationInterface {
       }),
     );
 
-        await queryRunner.createTable(
+    await queryRunner.createTable(
       new Table({
-        name: 'resident',
+        name: 'family',
         columns: [
           {
             name: 'id',
@@ -221,23 +221,18 @@ export class CreatingInitialTables1745630257039 implements MigrationInterface {
             generationStrategy: 'uuid',
           },
           {
-            name: 'name',
+            name: 'residentId',
+            type: 'uuid',
+            isNullable: false,
+          },
+          {
+            name: 'familyMemberId',
+            type: 'uuid',
+            isNullable: false,
+          },
+          {
+            name: 'relationship',
             type: 'varchar',
-            isNullable: false,
-          },
-          {
-            name: 'dateOfBirth',
-            type: 'date',
-            isNullable: false,
-          },
-          {
-            name: 'gender',
-            type: 'varchar',
-            isNullable: false,
-          },
-          {
-            name: 'admissionDate',
-            type: 'date',
             isNullable: false,
           },
         ],

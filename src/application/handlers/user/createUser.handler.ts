@@ -4,6 +4,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { CreateUserCommand } from 'src/application/commands/user/createUser.command';
 import { User } from 'src/domain/entities/user.entity';
 import { Repository } from 'typeorm';
+import * as bcrypt from 'bcrypt';
 
 @CommandHandler(CreateUserCommand)
 export class CreateUserHandler implements ICommandHandler<CreateUserCommand> {
@@ -14,15 +15,17 @@ export class CreateUserHandler implements ICommandHandler<CreateUserCommand> {
 
   async execute(command: CreateUserCommand): Promise<any> {
     try {
-      console.log('Cheguei aqui');
+      const saltRounds = 10;
       const { name, email, phone, addressId, password, roleId } = command;
+
+      const hashedPassword = await bcrypt.hash(password, saltRounds);
 
       const user = this.userRepository.create({
         name,
         email,
         phone,
         addressId,
-        password,
+        password: hashedPassword,
         roleId,
       });
 

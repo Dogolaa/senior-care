@@ -6,6 +6,7 @@ import {
   IsStrongPassword,
   IsUUID,
 } from 'class-validator';
+import { IsCPF } from 'src/infrastructure/commom/validators/user/cpfValidator';
 
 export class CreateUserDTO {
   @IsNotEmpty()
@@ -15,6 +16,10 @@ export class CreateUserDTO {
   @IsNotEmpty()
   @IsEmail()
   email: string;
+
+  @IsNotEmpty()
+  @IsCPF()
+  cpf: string;
 
   @IsNotEmpty()
   @IsPhoneNumber()

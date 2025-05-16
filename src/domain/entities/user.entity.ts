@@ -20,6 +20,9 @@ export class User {
   email: string;
 
   @Column({ type: 'varchar' })
+  cpf: string;
+
+  @Column({ type: 'varchar' })
   phone: string;
 
   @Column({ type: 'boolean', default: true })

@@ -29,6 +29,13 @@ export class CreatingInitialTables1745630257039 implements MigrationInterface {
             name: 'email',
             type: 'varchar',
             isNullable: false,
+            isUnique: true,
+          },
+          {
+            name: 'cpf',
+            type: 'varchar',
+            isNullable: false,
+            isUnique: true,
           },
           {
             name: 'phone',

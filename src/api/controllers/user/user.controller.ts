@@ -16,11 +16,12 @@ export class UserController {
   async createUser(
     @Body() body: CreateUserDTO,
   ): Promise<ResponseCreateUserInterface> {
-    const { name, email, phone, addressId, password, roleId } = body;
+    const { name, email, cpf, phone, addressId, password, roleId } = body;
 
     const command = new CreateUserCommand(
       name,
       email,
+      cpf,
       phone,
       addressId,
       password,

@@ -7,7 +7,7 @@ export class InsertInitialData1745630257040 implements MigrationInterface {
 
     await queryRunner.query(`
       INSERT INTO "role" ("id", "name") VALUES
-      ('11111111-1111-1111-1111-111111111111', 'ADMIN'),
+      ('f47ac10b-58cc-4372-a567-0e02b2c3d479', 'ADMIN'),
       ('11111111-1111-1111-1111-111111111112', 'USER'),
       ('11111111-1111-1111-1111-111111111113', 'GUEST');
     `);
@@ -21,12 +21,12 @@ export class InsertInitialData1745630257040 implements MigrationInterface {
 
     await queryRunner.query(`
       INSERT INTO "address" ("id", "cep", "country", "state", "city", "district", "street", "number", "complement") VALUES
-      ('11111111-1111-1111-1111-111111111117', '12345678', 'Brasil', 'SP', 'São Paulo', 'Centro', 'Rua A', 100, 'Apto 101');
+      ('d290f1ee-6c54-4b01-90e6-d701748f0851', '12345678', 'Brasil', 'SP', 'São Paulo', 'Centro', 'Rua A', 100, 'Apto 101');
     `);
 
     await queryRunner.query(`
-      INSERT INTO "users" ("id", "name", "email", "phone", "isActive", "password", "addressId", "roleId") VALUES
-      ('11111111-1111-1111-1111-111111111118', 'João da Silva', 'joao@exemplo.com', '999999999', true, '${password}', 
+      INSERT INTO "users" ("id", "name", "email", "cpf", "phone", "isActive", "password", "addressId", "roleId") VALUES
+      ('11111111-1111-1111-1111-111111111118', 'João da Silva', 'joao@exemplo.com', '50894118837' , '999999999', true, '${password}', 
       (SELECT "id" FROM "address" WHERE "cep" = '12345678' LIMIT 1), 
       (SELECT "id" FROM "role" WHERE "name" = 'ADMIN' LIMIT 1));
     `);

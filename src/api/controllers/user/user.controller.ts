@@ -4,16 +4,19 @@ import {
   Delete,
   Get,
   Param,
+  Patch,
   Post,
   Put,
 } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { CreateUserCommand } from 'src/application/commands/user/createUser.command';
 import { DeleteUserCommand } from 'src/application/commands/user/deleteUser.command';
+import { UpdateUserCommand } from 'src/application/commands/user/updateUser.command';
 import { CreateUserDTO } from 'src/application/dtos/user/createUser.dto';
+import { UpdateUserDTO } from 'src/application/dtos/user/updateUser.dto';
 import { GetAllUsersQuery } from 'src/application/query/user/getAllUsers.query';
 import { ListSpecificUserQuery } from 'src/application/query/user/listSpecificUser.query';
-import { ResponseCreateUserInterface } from 'src/domain/interfaces/user/responseCreateUser.interface';
+import { DeleteUserResponse } from 'src/domain/interfaces/user/deleteUserResponse.interface';
 
 @Controller('user')
 export class UserController {
@@ -39,23 +42,32 @@ export class UserController {
   }
 
   @Get('/')
-  async getAllUsers() {
+  async getAllUsers(): Promise<any> {
     const query = new GetAllUsersQuery();
 
     return await this.queryBus.execute(query);
   }
 
-  @Put('/:email')
-  async listSpecificUser(@Param('email') email: string) {
+  @Get('/:email')
+  async listSpecificUser(@Param('email') email: string): Promise<any> {
     const query = new ListSpecificUserQuery(email);
 
     return await this.queryBus.execute(query);
   }
 
   @Delete('/:email')
-  async deleteUser(@Param('email') email: string) {
+  async deleteUser(@Param('email') email: string): Promise<DeleteUserResponse> {
     const command = new DeleteUserCommand(email);
 
+    return await this.commandBus.execute(command);
+  }
+
+  @Patch('/:email')
+  async updateUser(
+    @Param('email') email: string,
+    @Body() body: UpdateUserDTO,
+  ): Promise<any> {
+    const command = new UpdateUserCommand(email, body);
     return await this.commandBus.execute(command);
   }
 }

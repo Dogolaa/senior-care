@@ -6,6 +6,7 @@ import { CreateUserHandler } from 'src/application/handlers/user/createUser.hand
 import { DeleteUserHandler } from 'src/application/handlers/user/deleteUser.handler';
 import { GetAllUsersHandler } from 'src/application/handlers/user/getAllUsers.handler';
 import { ListSpecificUserHandler } from 'src/application/handlers/user/listSpecificUser.handler';
+import { UpdateUserHandler } from 'src/application/handlers/user/updateUser.handler';
 import { User } from 'src/domain/entities/user.entity';
 
 @Module({
@@ -16,6 +17,7 @@ import { User } from 'src/domain/entities/user.entity';
     GetAllUsersHandler,
     ListSpecificUserHandler,
     DeleteUserHandler,
+    UpdateUserHandler,
   ],
 })
 export class UserModule {}

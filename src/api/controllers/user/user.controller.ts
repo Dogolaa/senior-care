@@ -55,7 +55,7 @@ export class UserController {
     return await this.queryBus.execute(query);
   }
 
-  @Delete('/:email')
+  @Delete('delete/:email')
   async deleteUser(@Param('email') email: string): Promise<DeleteUserResponse> {
     const command = new DeleteUserCommand(email);
 

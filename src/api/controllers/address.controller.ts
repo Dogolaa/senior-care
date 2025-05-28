@@ -6,24 +6,15 @@ import {
   Param,
   Patch,
   Post,
-  Put,
 } from '@nestjs/common';
 import { CommandBus, QueryBus } from '@nestjs/cqrs';
 import { CreateAddressCommand } from 'src/application/commands/address/createAddress.command';
 import { DeleteAddressCommand } from 'src/application/commands/address/deleteAddress.command';
 import { UpdateAddressCommand } from 'src/application/commands/address/updateAddress.command';
-import { CreateUserCommand } from 'src/application/commands/user/createUser.command';
-import { DeleteUserCommand } from 'src/application/commands/user/deleteUser.command';
-import { UpdateUserCommand } from 'src/application/commands/user/updateUser.command';
 import { CreateAddressDTO } from 'src/application/dtos/address/createAddress.dto';
 import { UpdateAddressDTO } from 'src/application/dtos/address/updateAddress.dto';
-import { CreateUserDTO } from 'src/application/dtos/user/createUser.dto';
-import { UpdateUserDTO } from 'src/application/dtos/user/updateUser.dto';
 import { GetAllAddressQuery } from 'src/application/query/address/getAllAddress.query';
 import { ListSpecificAddressQuery } from 'src/application/query/address/listSpecificAddress.query';
-import { GetAllUsersQuery } from 'src/application/query/user/getAllUsers.query';
-import { ListSpecificUserQuery } from 'src/application/query/user/listSpecificUser.query';
-import { DeleteUserResponse } from 'src/domain/interfaces/user/deleteUserResponse.interface';
 
 @Controller('address')
 export class AddressController {

@@ -1,7 +1,7 @@
 import { Module } from '@nestjs/common';
 import { CqrsModule } from '@nestjs/cqrs';
 import { TypeOrmModule } from '@nestjs/typeorm';
-import { UserController } from 'src/api/controllers/user/user.controller';
+import { UserController } from 'src/api/controllers/user.controller';
 import { CreateUserHandler } from 'src/application/handlers/user/createUser.handler';
 import { DeleteUserHandler } from 'src/application/handlers/user/deleteUser.handler';
 import { GetAllUsersHandler } from 'src/application/handlers/user/getAllUsers.handler';

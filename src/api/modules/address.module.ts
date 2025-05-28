@@ -3,7 +3,7 @@ import { CqrsModule } from '@nestjs/cqrs';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { CreateAddressHandler } from 'src/application/handlers/address/createAddress.handler';
 import { Address } from 'src/domain/entities/address.entity';
-import { AddressController } from '../controllers/address/address.controller';
+import { AddressController } from '../controllers/address.controller';
 import { GetAllAddressHandler } from 'src/application/handlers/address/getAllAddress.handler';
 import { ListSpecificAddressHandler } from 'src/application/handlers/address/listSpecificAddress.handler';
 import { DeleteAddressHandler } from 'src/application/handlers/address/deleteAddress.handler';

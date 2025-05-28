@@ -80,8 +80,7 @@ export class CreatingInitialTables1745630257039 implements MigrationInterface {
           },
           {
             name: 'name',
-            type: 'enum',
-            enum: ['ADMIN', 'USER', 'GUEST'],
+            type: 'varchar',
             isNullable: false,
           },
         ],

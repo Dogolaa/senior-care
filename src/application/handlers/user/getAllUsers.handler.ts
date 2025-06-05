@@ -12,13 +12,13 @@ export class GetAllUsersHandler implements IQueryHandler<GetAllUsersQuery> {
     private readonly userRepository: Repository<User>,
   ) {}
 
-  async execute(): Promise<User[]> {
+  async execute(_query: GetAllUsersQuery): Promise<User[]> {
     try {
       return await this.userRepository.find({
         select: ['name', 'email', 'phone', 'isActive'],
         relations: ['address', 'role'],
       });
-    } catch {
+    } catch (error) {
       throw new BadRequestException('Erro ao buscar usuários');
     }
   }

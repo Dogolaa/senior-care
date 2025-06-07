@@ -20,7 +20,7 @@ services:
     depends_on:
       - db
     ports:
-      - '6000:3000'
+      - '3000:3000'
     environment:
       JWT_SECRET: ${JWT_SECRET}
       DB_HOST: db

@@ -4,9 +4,11 @@ import {
   Column,
   ManyToOne,
   JoinColumn,
+  OneToOne,
 } from 'typeorm';
 import { Role } from './role.entity';
 import { Address } from './address.entity';
+import { Nurse } from './nurse.entity';
 
 @Entity('users')
 export class User {
@@ -44,4 +46,7 @@ export class User {
   @ManyToOne(() => Role, (role) => role.users, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'roleId' })
   role: Role;
+
+  @OneToOne(() => Nurse, (nurse) => nurse.user)
+  nurse?: Nurse;
 }

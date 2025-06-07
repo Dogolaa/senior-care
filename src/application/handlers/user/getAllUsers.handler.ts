@@ -15,7 +15,7 @@ export class GetAllUsersHandler implements IQueryHandler<GetAllUsersQuery> {
   async execute(_query: GetAllUsersQuery): Promise<User[]> {
     try {
       return await this.userRepository.find({
-        select: ['name', 'email', 'phone', 'isActive'],
+        select: ['id', 'name', 'email', 'phone', 'isActive'],
         relations: ['address', 'role'],
       });
     } catch (error) {

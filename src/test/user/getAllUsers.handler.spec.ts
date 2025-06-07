@@ -71,7 +71,7 @@ describe('GetAllUsersHandler', () => {
       expect(mockUserRepository.find).toHaveBeenCalledTimes(1);
       // 3. Verifica se 'find' foi chamado com os parâmetros corretos (select e relations)
       expect(mockUserRepository.find).toHaveBeenCalledWith({
-        select: ['name', 'email', 'phone', 'isActive'],
+        select: ['id', 'name', 'email', 'phone', 'isActive'],
         relations: ['address', 'role'],
       });
     });

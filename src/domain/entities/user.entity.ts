@@ -9,6 +9,7 @@ import {
 import { Role } from './role.entity';
 import { Address } from './address.entity';
 import { Nurse } from './nurse.entity';
+import { Doctor } from './doctor.entity';
 
 @Entity('users')
 export class User {
@@ -49,4 +50,7 @@ export class User {
 
   @OneToOne(() => Nurse, (nurse) => nurse.user)
   nurse?: Nurse;
+
+  @OneToOne(() => Doctor, (doctor) => doctor.user)
+  doctor?: Doctor;
 }

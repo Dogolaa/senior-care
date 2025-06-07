@@ -6,6 +6,7 @@ import { AddressModule } from './api/modules/address.module';
 import { RoleModule } from './api/modules/role.module';
 import { PermissionModule } from './api/modules/permission.module';
 import { NurseModule } from './api/modules/nurse.module';
+import { DoctorModule } from './api/modules/doctor.module';
 
 @Module({
   imports: [
@@ -16,6 +17,7 @@ import { NurseModule } from './api/modules/nurse.module';
     RoleModule,
     PermissionModule,
     NurseModule,
+    DoctorModule,
   ],
   controllers: [],
   providers: [],

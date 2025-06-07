@@ -5,7 +5,6 @@ import {
 } from '@nestjs/common';
 import { CommandHandler, ICommandHandler } from '@nestjs/cqrs';
 import { InjectRepository } from '@nestjs/typeorm';
-import { spec } from 'node:test/reporters';
 import { UpdateNurseCommand } from 'src/application/commands/nurse/updateNurse.command';
 import { Nurse } from 'src/domain/entities/nurse.entity';
 import { Repository } from 'typeorm';

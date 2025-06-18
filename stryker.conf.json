@@ -1,0 +1,39 @@
+{
+  "$schema": "./node_modules/@stryker-mutator/core/schema/stryker-schema.json",
+  "packageManager": "npm",
+  "mutate": [
+    "src/**/*.ts",
+    "!src/**/*.spec.ts",
+    "!src/main.ts",
+    "!src/app.module.ts",
+    "!src/infrastructure/database/migrations/*.ts",
+    "!src/infrastructure/database/orm.config.ts"
+  ],
+  "mutator": {
+    "plugins": ["@stryker-mutator/typescript"]
+  },
+  "testRunner": "jest",
+  "jest": {
+    "projectType": "custom",
+    "config": {
+      "rootDir": ".",
+      "testEnvironment": "node",
+      "testRegex": ".*\\.spec\\.ts$",
+      "transform": {
+        "^.+\\.(t|j)s$": "ts-jest"
+      },
+      "moduleNameMapper": {
+        "^src/(.*)$": "<rootDir>/src/$1"
+      }
+    }
+  },
+  "reporters": ["progress", "html", "clear-text", "json"],
+  "timeoutFactor": 2.5,
+  "thresholds": {
+    "high": 80,
+    "low": 60,
+    "break": 70
+  },
+  "concurrency": 2,
+  "tempDirName": ".stryker-tmp"
+}

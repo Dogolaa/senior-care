@@ -22,7 +22,8 @@
     "migration:generate": "npm run typeorm migration:generate",
     "migration:run": "npm run typeorm migration:run -- -d src/infrastructure/database/orm.config.ts",
     "migration:revert": "npm run typeorm migration:revert -- -d src/infrastructure/database/orm.config.ts",
-    "migration:create": "npm run typeorm -- migration:create ./src/infrastructure/database/migrations/$npm_config_name"
+    "migration:create": "npm run typeorm -- migration:create ./src/infrastructure/database/migrations/$npm_config_name",
+    "stryker": "stryker run"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
@@ -48,6 +49,8 @@
     "@nestjs/cli": "^11.0.0",
     "@nestjs/schematics": "^11.0.0",
     "@nestjs/testing": "^11.0.1",
+    "@stryker-mutator/core": "^9.0.1",
+    "@stryker-mutator/jest-runner": "^9.0.1",
     "@swc/cli": "^0.6.0",
     "@swc/core": "^1.10.7",
     "@types/express": "^5.0.0",

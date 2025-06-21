@@ -7,6 +7,7 @@ import { RoleModule } from './api/modules/role.module';
 import { PermissionModule } from './api/modules/permission.module';
 import { NurseModule } from './api/modules/nurse.module';
 import { DoctorModule } from './api/modules/doctor.module';
+import { ResidentModule } from './api/modules/resident.module';
 
 @Module({
   imports: [
@@ -18,6 +19,7 @@ import { DoctorModule } from './api/modules/doctor.module';
     PermissionModule,
     NurseModule,
     DoctorModule,
+    ResidentModule,
   ],
   controllers: [],
   providers: [],

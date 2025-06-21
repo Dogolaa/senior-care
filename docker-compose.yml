@@ -1,3 +1,5 @@
+# docker-compose.yml
+
 services:
   db:
     image: postgres:15
@@ -16,7 +18,7 @@ services:
     build:
       context: .
     container_name: seniorCare
-    restart: unless-stopped
+    restart: always
     depends_on:
       - db
     ports:
@@ -28,6 +30,10 @@ services:
       DB_USERNAME: postgres
       DB_PASSWORD: postgres
       DB_DATABASE: SeniorCare
+    volumes:
+      - .:/app
+      - /app/node_modules
+    command: npm run start:dev
 
 volumes:
   pgdata:

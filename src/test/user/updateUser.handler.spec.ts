@@ -1,9 +1,7 @@
-import { BadRequestException, Logger, NotFoundException } from '@nestjs/common';
+import { BadRequestException, NotFoundException } from '@nestjs/common';
 import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
-import { DeleteUserCommand } from 'src/application/commands/user/deleteUser.command';
 import { UpdateUserCommand } from 'src/application/commands/user/updateUser.command';
-import { DeleteUserHandler } from 'src/application/handlers/user/deleteUser.handler';
 import { UpdateUserHandler } from 'src/application/handlers/user/updateUser.handler';
 import { User } from 'src/domain/entities/user.entity';
 import { Repository } from 'typeorm';

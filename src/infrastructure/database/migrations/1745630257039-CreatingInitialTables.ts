@@ -182,7 +182,7 @@ export class CreatingInitialTables1745630257039 implements MigrationInterface {
 
     await queryRunner.createTable(
       new Table({
-        name: 'resident',
+        name: 'residents',
         columns: [
           {
             name: 'id',

@@ -10,6 +10,7 @@ import { Role } from './role.entity';
 import { Address } from './address.entity';
 import { Nurse } from './nurse.entity';
 import { Doctor } from './doctor.entity';
+import { FamilyMember } from './familyMember.entity';
 
 @Entity('users')
 export class User {
@@ -53,4 +54,7 @@ export class User {
 
   @OneToOne(() => Doctor, (doctor) => doctor.user)
   doctor?: Doctor;
+
+  @OneToOne(() => FamilyMember, (familyMember) => familyMember.user)
+  familyMember?: FamilyMember;
 }

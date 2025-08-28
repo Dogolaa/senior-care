@@ -1,5 +1,6 @@
 import { Gender } from 'src/application/dtos/resident/createResident.dto';
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
+import { FamilyMember } from './familyMember.entity';
 
 @Entity('residents')
 export class Resident {
@@ -20,4 +21,7 @@ export class Resident {
 
   @Column({ type: 'date' })
   admissionDate: string;
+
+  @OneToMany(() => FamilyMember, (familyMember) => familyMember.resident)
+  familyMember?: FamilyMember[];
 }
